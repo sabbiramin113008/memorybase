@@ -1,8 +1,8 @@
-site_name: AgentDock
+site_name: MemoryBase
 site_description: The project operating system for AI agents
 site_url: https://sabbiramin113008.github.io/memorybase
 repo_url: https://github.com/sabbiramin113008/memorybase
-repo_name: agentdock
+repo_name: memorybase
 edit_uri: edit/main/docs/docs/
 
 theme:

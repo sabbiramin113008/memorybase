@@ -15,12 +15,12 @@
 docker pull ghcr.io/sabbiramin113008/memorybase:latest
 
 # 2. Create a data directory for SQLite persistence
-mkdir -p agentdock_data
+mkdir -p memorybase_data
 
 # 3. Run
 docker run -p 8000:8000 \
-  -v $(pwd)/agentdock_data:/app/data \
-  -e AGENTDOCK_API_KEY=change-me \
+  -v $(pwd)/memorybase_data:/app/data \
+  -e MEMORYBASE_API_KEY=change-me \
   ghcr.io/sabbiramin113008/memorybase:latest
 ```
 
@@ -34,7 +34,7 @@ Open [http://localhost:8000](http://localhost:8000).
 
 ```bash
 git clone https://github.com/sabbiramin113008/memorybase.git
-cd agentdock
+cd memorybase
 ```
 
 ### 2. Start the backend
@@ -93,7 +93,7 @@ Go to **Settings** and copy the MCP config for your tool:
     ```json
     {
       "mcpServers": {
-        "agentdock": {
+        "memorybase": {
           "type": "sse",
           "url": "http://localhost:8000/mcp/sse"
         }
@@ -106,7 +106,7 @@ Go to **Settings** and copy the MCP config for your tool:
     ```json
     {
       "mcpServers": {
-        "agentdock": {
+        "memorybase": {
           "url": "http://localhost:8000/mcp/sse"
         }
       }
@@ -126,6 +126,6 @@ See [Configuration](configuration.md) for all available settings.
 The most important ones to set before going to production:
 
 ```bash
-AGENTDOCK_API_KEY=your-secret-key-here
-DATABASE_URL=postgresql://user:pass@host:5432/agentdock
+MEMORYBASE_API_KEY=your-secret-key-here
+DATABASE_URL=postgresql://user:pass@host:5432/memorybase
 ```

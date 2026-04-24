@@ -1,16 +1,16 @@
-# AgentDock
+# MemoryBase
 
 **The project operating system for AI agents.**
 
-AgentDock gives your AI coding assistants a shared memory and task system. Agents can read your project blueprint, update task statuses, record decisions, and coordinate with each other — all through a standardised MCP interface.
+MemoryBase gives your AI coding assistants a shared memory and task system. Agents can read your project blueprint, update task statuses, record decisions, and coordinate with each other — all through a standardised MCP interface.
 
 ---
 
-## Why AgentDock?
+## Why MemoryBase?
 
 Modern AI coding workflows break down as soon as you have more than one agent, more than one session, or more than a few days of work. Context gets lost, tasks get duplicated, decisions go undocumented.
 
-AgentDock solves this with three primitives:
+MemoryBase solves this with three primitives:
 
 | Primitive | What it does |
 |-----------|-------------|
@@ -38,7 +38,7 @@ All three are accessible to any AI agent via **MCP tools**, and to humans via a 
 
 ```bash
 # Pull and run with Docker
-docker run -p 8000:8000 -e AGENTDOCK_API_KEY=my-secret ghcr.io/sabbiramin113008/memorybase:latest
+docker run -p 8000:8000 -e MEMORYBASE_API_KEY=my-secret ghcr.io/sabbiramin113008/memorybase:latest
 ```
 
 Open [http://localhost:8000](http://localhost:8000) in your browser.
@@ -51,7 +51,7 @@ For full setup instructions, see [Getting Started](getting-started.md).
 
 ```
 ┌─────────────────────────────────────────────┐
-│                AgentDock                     │
+│                MemoryBase                     │
 │                                             │
 │  ┌──────────┐   ┌──────────┐   ┌─────────┐ │
 │  │  React   │   │ FastAPI  │   │   MCP   │ │

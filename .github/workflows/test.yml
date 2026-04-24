@@ -26,7 +26,7 @@ jobs:
       - name: Run backend tests
         env:
           DATABASE_URL: sqlite:///./test.db
-          AGENTDOCK_API_KEY: test-key
+          MEMORYBASE_API_KEY: test-key
         run: pytest tests/ -v
 
   frontend:
@@ -61,4 +61,4 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t agentdock:ci .
+        run: docker build -t memorybase:ci .

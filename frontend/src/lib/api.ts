@@ -156,7 +156,7 @@ async function request<T>(
     method,
     headers: {
       "Content-Type": "application/json",
-      "X-AgentDock-Key": API_KEY,
+      "X-MemoryBase-Key": API_KEY,
     },
     ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
   })

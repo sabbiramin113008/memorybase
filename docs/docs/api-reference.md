@@ -1,6 +1,6 @@
 # API Reference
 
-AgentDock exposes a REST API at `/api/*`. Interactive documentation (Swagger UI) is available at:
+MemoryBase exposes a REST API at `/api/*`. Interactive documentation (Swagger UI) is available at:
 
 ```
 http://localhost:8000/docs
@@ -16,11 +16,11 @@ http://localhost:8000/redoc
 
 ## Authentication
 
-All `/api/*` endpoints require the `X-AgentDock-Key` header:
+All `/api/*` endpoints require the `X-MemoryBase-Key` header:
 
 ```bash
 curl http://localhost:8000/api/projects \
-  -H "X-AgentDock-Key: your-api-key"
+  -H "X-MemoryBase-Key: your-api-key"
 ```
 
 Returns `401` if the header is missing or incorrect.

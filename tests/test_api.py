@@ -1,4 +1,4 @@
-"""Smoke tests for AgentDock API endpoints."""
+"""Smoke tests for MemoryBase API endpoints."""
 from .conftest import AUTH
 
 

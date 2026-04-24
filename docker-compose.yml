@@ -1,11 +1,11 @@
 services:
-  agentdock:
+  memorybase:
     build: .
-    image: agentdock:latest
+    image: memorybase:latest
     ports:
       - "8000:8000"
     volumes:
-      - ./agentdock_data:/app/data
+      - ./memorybase_data:/app/data
     env_file:
       - .env
     restart: unless-stopped

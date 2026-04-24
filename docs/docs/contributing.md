@@ -1,6 +1,6 @@
 # Contributing
 
-Thank you for your interest in contributing to AgentDock!
+Thank you for your interest in contributing to MemoryBase!
 
 ---
 
@@ -10,7 +10,7 @@ Thank you for your interest in contributing to AgentDock!
 
 ```bash
 git clone https://github.com/sabbiramin113008/memorybase.git
-cd agentdock
+cd memorybase
 ```
 
 ### 2. Backend
@@ -40,7 +40,7 @@ npm run dev  # starts at http://localhost:5273
 ## Project Structure
 
 ```
-agentdock/
+memorybase/
 ├── backend/
 │   ├── main.py              # FastAPI app entry point
 │   ├── config.py            # pydantic-settings configuration

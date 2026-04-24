@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-export interface AgentDockEvent {
+export interface MemoryBaseEvent {
   event: string
   project_id: string
   data: Record<string, unknown>
@@ -8,7 +8,7 @@ export interface AgentDockEvent {
 }
 
 interface UseSSEResult {
-  lastEvent: AgentDockEvent | null
+  lastEvent: MemoryBaseEvent | null
   connected: boolean
 }
 
@@ -16,12 +16,12 @@ const MIN_RETRY_MS = 1_000
 const MAX_RETRY_MS = 30_000
 
 /**
- * Subscribe to the AgentDock SSE stream for a project.
+ * Subscribe to the MemoryBase SSE stream for a project.
  * Auto-reconnects with exponential backoff on disconnect.
  * Cleans up EventSource on component unmount.
  */
 export function useSSE(projectId: string | null | undefined): UseSSEResult {
-  const [lastEvent, setLastEvent] = useState<AgentDockEvent | null>(null)
+  const [lastEvent, setLastEvent] = useState<MemoryBaseEvent | null>(null)
   const [connected, setConnected] = useState(false)
   const retryMsRef = useRef(MIN_RETRY_MS)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -47,7 +47,7 @@ export function useSSE(projectId: string | null | undefined): UseSSEResult {
       es.onmessage = (e) => {
         if (cancelled) return
         try {
-          const parsed: AgentDockEvent = JSON.parse(e.data)
+          const parsed: MemoryBaseEvent = JSON.parse(e.data)
           setLastEvent(parsed)
         } catch {
           // malformed event — ignore
@@ -66,7 +66,7 @@ export function useSSE(projectId: string | null | undefined): UseSSEResult {
           if (cancelled) return
           if (type === "ping") return
           try {
-            const parsed: AgentDockEvent = JSON.parse(e.data)
+            const parsed: MemoryBaseEvent = JSON.parse(e.data)
             setLastEvent(parsed)
           } catch {
             // ignore

@@ -6,7 +6,7 @@ from sqlmodel.pool import StaticPool
 # Use an in-memory SQLite DB for tests
 import os
 os.environ.setdefault("DATABASE_URL", "sqlite://")
-os.environ.setdefault("AGENTDOCK_API_KEY", "test-key")
+os.environ.setdefault("MEMORYBASE_API_KEY", "test-key")
 
 from backend.main import app
 from backend import database
@@ -34,4 +34,4 @@ def client_fixture():
     app.dependency_overrides.clear()
 
 
-AUTH = {"X-AgentDock-Key": "test-key"}
+AUTH = {"X-MemoryBase-Key": "test-key"}

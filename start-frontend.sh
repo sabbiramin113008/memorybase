@@ -10,5 +10,5 @@ if [ ! -d "$FRONTEND/node_modules" ]; then
   npm install --prefix "$FRONTEND"
 fi
 
-echo "Starting AgentDock frontend dev server on http://localhost:5273 ..."
+echo "Starting MemoryBase frontend dev server on http://localhost:5273 ..."
 npm run dev --prefix "$FRONTEND"

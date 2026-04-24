@@ -1,6 +1,6 @@
 # Configuration
 
-AgentDock is configured entirely through environment variables. All variables can also be placed in a `.env` file in the project root — `pydantic-settings` reads it automatically.
+MemoryBase is configured entirely through environment variables. All variables can also be placed in a `.env` file in the project root — `pydantic-settings` reads it automatically.
 
 ---
 
@@ -8,15 +8,15 @@ AgentDock is configured entirely through environment variables. All variables ca
 
 | Variable | Type | Default | Description |
 |----------|------|---------|-------------|
-| `DATABASE_URL` | `str` | `sqlite:///./agentdock.db` | SQLAlchemy database URL. Use `postgresql://user:pass@host/db` for production. |
-| `AGENTDOCK_API_KEY` | `str` | `dev-key-change-in-production` | Secret key sent in `X-AgentDock-Key` header. **Must be changed in production.** |
+| `DATABASE_URL` | `str` | `sqlite:///./memorybase.db` | SQLAlchemy database URL. Use `postgresql://user:pass@host/db` for production. |
+| `MEMORYBASE_API_KEY` | `str` | `dev-key-change-in-production` | Secret key sent in `X-MemoryBase-Key` header. **Must be changed in production.** |
 | `HOST` | `str` | `0.0.0.0` | Host to bind the uvicorn server to. |
 | `PORT` | `int` | `8000` | Port to listen on. |
 | `CORS_ORIGINS` | `list[str]` | `["http://localhost:5173", "http://localhost:3000"]` | Allowed CORS origins. |
 | `STATIC_DIR` | `str` | `../frontend/dist` | Path to the frontend build output. Served at `/` when the directory exists. |
-| `AGENTDOCK_LLM_PROVIDER` | `str` | `anthropic` | Default LLM provider (for future LLM features). |
-| `AGENTDOCK_LLM_MODEL` | `str` | `claude-sonnet-4-20250514` | Default LLM model. |
-| `AGENTDOCK_LLM_API_KEY` | `str` | `""` | API key for the LLM provider. |
+| `MEMORYBASE_LLM_PROVIDER` | `str` | `anthropic` | Default LLM provider (for future LLM features). |
+| `MEMORYBASE_LLM_MODEL` | `str` | `claude-sonnet-4-20250514` | Default LLM model. |
+| `MEMORYBASE_LLM_API_KEY` | `str` | `""` | API key for the LLM provider. |
 
 ---
 
@@ -24,10 +24,10 @@ AgentDock is configured entirely through environment variables. All variables ca
 
 ```dotenv
 # Database
-DATABASE_URL=sqlite:///./agentdock.db
+DATABASE_URL=sqlite:///./memorybase.db
 
 # Security — change this before deploying!
-AGENTDOCK_API_KEY=my-strong-secret-key
+MEMORYBASE_API_KEY=my-strong-secret-key
 
 # Network
 HOST=0.0.0.0
@@ -37,9 +37,9 @@ PORT=8000
 CORS_ORIGINS=["http://localhost:5273", "https://yourdomain.com"]
 
 # LLM (optional)
-AGENTDOCK_LLM_PROVIDER=anthropic
-AGENTDOCK_LLM_MODEL=claude-sonnet-4-20250514
-AGENTDOCK_LLM_API_KEY=sk-ant-...
+MEMORYBASE_LLM_PROVIDER=anthropic
+MEMORYBASE_LLM_MODEL=claude-sonnet-4-20250514
+MEMORYBASE_LLM_API_KEY=sk-ant-...
 ```
 
 ---
@@ -53,10 +53,10 @@ pip install psycopg2-binary
 ```
 
 ```dotenv
-DATABASE_URL=postgresql://agentdock:password@localhost:5432/agentdock
+DATABASE_URL=postgresql://memorybase:password@localhost:5432/memorybase
 ```
 
-AgentDock uses SQLModel (SQLAlchemy under the hood) and works with any SQLAlchemy-compatible database.
+MemoryBase uses SQLModel (SQLAlchemy under the hood) and works with any SQLAlchemy-compatible database.
 
 ---
 

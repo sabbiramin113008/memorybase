@@ -1,4 +1,4 @@
-"""All MCP tool implementations for AgentDock.
+"""All MCP tool implementations for MemoryBase.
 
 All tools return a JSON string (str). This ensures FastMCP always wraps the
 response in exactly one TextContent item, making client parsing trivial.
@@ -63,7 +63,7 @@ def _err(msg: str) -> str:
 # Project tools
 # ---------------------------------------------------------------------------
 
-@mcp.tool(description="List all AgentDock projects. Returns id, name, description, domain, status for each project.")
+@mcp.tool(description="List all MemoryBase projects. Returns id, name, description, domain, status for each project.")
 def list_projects() -> str:
     with _session() as session:
         projects = session.exec(select(Project)).all()

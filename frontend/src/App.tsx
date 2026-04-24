@@ -44,7 +44,7 @@ class ErrorBoundary extends React.Component<
     return { error }
   }
   componentDidCatch(error: Error, info: React.ErrorInfo) {
-    console.error("=== AGENTDOCK RENDER ERROR ===")
+    console.error("=== MEMORYBASE RENDER ERROR ===")
     console.error("Message:", error.message)
     console.error("Component stack:", info.componentStack)
   }
@@ -89,7 +89,7 @@ function Sidebar({ projectId }: { projectId?: string }) {
     <aside className="w-56 shrink-0 border-r bg-card flex flex-col h-screen sticky top-0">
       <div className="px-4 py-4 border-b">
         <Link to="/" className="font-bold text-lg tracking-tight">
-          AgentDock
+          MemoryBase
         </Link>
         <p className="text-xs text-muted-foreground mt-0.5">Project OS for AI agents</p>
       </div>

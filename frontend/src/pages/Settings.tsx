@@ -41,7 +41,7 @@ function MCPSection() {
 
   const claudeConfig = JSON.stringify({
     mcpServers: {
-      agentdock: {
+      memorybase: {
         type: "sse",
         url: mcpUrl,
       },
@@ -50,7 +50,7 @@ function MCPSection() {
 
   const cursorConfig = JSON.stringify({
     mcpServers: {
-      agentdock: {
+      memorybase: {
         url: mcpUrl,
       },
     },
@@ -61,7 +61,7 @@ function MCPSection() {
       <CardHeader>
         <CardTitle className="text-base">MCP Connection</CardTitle>
         <CardDescription>
-          Connect AI agents to AgentDock via the Model Context Protocol.
+          Connect AI agents to MemoryBase via the Model Context Protocol.
           The SSE endpoint is <code className="text-xs bg-muted px-1 rounded">{mcpUrl}</code>
         </CardDescription>
       </CardHeader>
@@ -92,7 +92,7 @@ function APIKeySection() {
     <Card>
       <CardHeader>
         <CardTitle className="text-base">API Key</CardTitle>
-        <CardDescription>Used in the <code className="text-xs bg-muted px-1 rounded">X-AgentDock-Key</code> header for all API calls.</CardDescription>
+        <CardDescription>Used in the <code className="text-xs bg-muted px-1 rounded">X-MemoryBase-Key</code> header for all API calls.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="flex items-center gap-3">
@@ -105,7 +105,7 @@ function APIKeySection() {
           <CopyButton text={apiKey} />
         </div>
         <p className="text-xs text-muted-foreground">
-          To change the key, set <code className="bg-muted px-1 rounded">AGENTDOCK_API_KEY</code> in your environment and restart the backend.
+          To change the key, set <code className="bg-muted px-1 rounded">MEMORYBASE_API_KEY</code> in your environment and restart the backend.
         </p>
       </CardContent>
     </Card>
@@ -122,7 +122,7 @@ function AboutSection() {
       </CardHeader>
       <CardContent className="space-y-3 text-sm">
         <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">AgentDock</span>
+          <span className="text-muted-foreground">MemoryBase</span>
           <Badge variant="secondary">v0.1.0</Badge>
         </div>
         <p className="text-muted-foreground text-xs max-w-md">

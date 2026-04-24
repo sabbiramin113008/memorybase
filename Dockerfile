@@ -14,7 +14,7 @@ RUN npm run build
 FROM python:3.11-slim AS backend
 
 # Non-root user for security
-RUN groupadd -r agentdock && useradd -r -g agentdock agentdock
+RUN groupadd -r memorybase && useradd -r -g memorybase memorybase
 
 WORKDIR /app
 
@@ -29,15 +29,15 @@ COPY backend/ ./backend/
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 
 # Persistent data directory (SQLite file lives here when mounted)
-RUN mkdir -p /app/data && chown agentdock:agentdock /app/data
+RUN mkdir -p /app/data && chown memorybase:memorybase /app/data
 
 # Environment defaults (can be overridden at runtime)
-ENV DATABASE_URL=sqlite:////app/data/agentdock.db \
+ENV DATABASE_URL=sqlite:////app/data/memorybase.db \
     STATIC_DIR=/app/frontend/dist \
     HOST=0.0.0.0 \
     PORT=8000
 
-USER agentdock
+USER memorybase
 
 EXPOSE 8000
 

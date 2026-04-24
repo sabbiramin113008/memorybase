@@ -34,7 +34,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="AgentDock",
+    title="MemoryBase",
     version="0.1.0",
     description="The project operating system for AI agents.",
     lifespan=lifespan,
@@ -86,7 +86,7 @@ if os.path.isdir(static_dir):
 
 
 def cli():
-    """Entry point for the `agentdock` CLI command."""
+    """Entry point for the `memorybase` CLI command."""
     import uvicorn
     import argparse
 

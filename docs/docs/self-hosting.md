@@ -2,19 +2,19 @@
 
 ## Docker Compose (recommended)
 
-The easiest way to run AgentDock in production is Docker Compose.
+The easiest way to run MemoryBase in production is Docker Compose.
 
 ### 1. Create a directory
 
 ```bash
-mkdir agentdock && cd agentdock
+mkdir memorybase && cd memorybase
 ```
 
 ### 2. Create `docker-compose.yml`
 
 ```yaml
 services:
-  agentdock:
+  memorybase:
     image: ghcr.io/sabbiramin113008/memorybase:latest
     ports:
       - "8000:8000"
@@ -27,8 +27,8 @@ services:
 ### 3. Create `.env`
 
 ```dotenv
-AGENTDOCK_API_KEY=your-strong-secret-key
-DATABASE_URL=sqlite:////app/data/agentdock.db
+MEMORYBASE_API_KEY=your-strong-secret-key
+DATABASE_URL=sqlite:////app/data/memorybase.db
 ```
 
 ### 4. Start
@@ -48,20 +48,20 @@ services:
   db:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: agentdock
+      POSTGRES_USER: memorybase
       POSTGRES_PASSWORD: secret
-      POSTGRES_DB: agentdock
+      POSTGRES_DB: memorybase
     volumes:
       - pgdata:/var/lib/postgresql/data
     restart: unless-stopped
 
-  agentdock:
+  memorybase:
     image: ghcr.io/sabbiramin113008/memorybase:latest
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://agentdock:secret@db:5432/agentdock
-      AGENTDOCK_API_KEY: your-strong-secret-key
+      DATABASE_URL: postgresql://memorybase:secret@db:5432/memorybase
+      MEMORYBASE_API_KEY: your-strong-secret-key
     depends_on:
       - db
     restart: unless-stopped
@@ -74,21 +74,21 @@ volumes:
 
 ## Nginx Reverse Proxy
 
-To run AgentDock behind Nginx with HTTPS:
+To run MemoryBase behind Nginx with HTTPS:
 
 ```nginx
 server {
     listen 80;
-    server_name agentdock.yourdomain.com;
+    server_name memorybase.yourdomain.com;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl;
-    server_name agentdock.yourdomain.com;
+    server_name memorybase.yourdomain.com;
 
-    ssl_certificate     /etc/letsencrypt/live/agentdock.yourdomain.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/agentdock.yourdomain.com/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/memorybase.yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/memorybase.yourdomain.com/privkey.pem;
 
     # SSE requires buffering to be off
     proxy_buffering off;
@@ -121,7 +121,7 @@ server {
 docker compose pull
 
 # Restart with zero downtime
-docker compose up -d --no-deps agentdock
+docker compose up -d --no-deps memorybase
 ```
 
 Database migrations are handled automatically on startup — no manual steps required.

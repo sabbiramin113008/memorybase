@@ -3,12 +3,12 @@ from fastapi.security import APIKeyHeader
 
 from backend.config import settings
 
-_api_key_header = APIKeyHeader(name="X-AgentDock-Key", auto_error=False)
+_api_key_header = APIKeyHeader(name="X-MemoryBase-Key", auto_error=False)
 
 
-async def verify_api_key(x_agentdock_key: str = Header(default=None, alias="X-AgentDock-Key")) -> None:
-    """FastAPI dependency: validates X-AgentDock-Key header on all /api/* routes."""
-    if x_agentdock_key is None:
+async def verify_api_key(x_memorybase_key: str = Header(default=None, alias="X-MemoryBase-Key")) -> None:
+    """FastAPI dependency: validates X-MemoryBase-Key header on all /api/* routes."""
+    if x_memorybase_key is None:
         raise HTTPException(status_code=401, detail={"error": "Missing API key"})
-    if x_agentdock_key != settings.AGENTDOCK_API_KEY:
+    if x_memorybase_key != settings.MEMORYBASE_API_KEY:
         raise HTTPException(status_code=401, detail={"error": "Invalid API key"})

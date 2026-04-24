@@ -75,7 +75,7 @@ function CreateProjectModal({ open, onClose }: CreateProjectModalProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>New Project</DialogTitle>
-          <DialogDescription>Create a new AgentDock project to track blueprints and tasks.</DialogDescription>
+          <DialogDescription>Create a new MemoryBase project to track blueprints and tasks.</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">

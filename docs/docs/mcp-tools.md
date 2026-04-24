@@ -1,11 +1,11 @@
 # MCP Tools Reference
 
-AgentDock exposes all project operations as MCP tools over SSE transport. Any MCP-compliant client (Claude Code, Cursor, Windsurf) can connect and use these tools.
+MemoryBase exposes all project operations as MCP tools over SSE transport. Any MCP-compliant client (Claude Code, Cursor, Windsurf) can connect and use these tools.
 
 ## Connection Details
 
 - **MCP SSE Endpoint:** `http://localhost:8000/mcp/sse`
-- **Auth:** API key sent as `X-AgentDock-Key` header in MCP config (not required on the SSE endpoint itself)
+- **Auth:** API key sent as `X-MemoryBase-Key` header in MCP config (not required on the SSE endpoint itself)
 
 ---
 
@@ -16,11 +16,11 @@ AgentDock exposes all project operations as MCP tools over SSE transport. Any MC
 ```json
 {
   "mcpServers": {
-    "agentdock": {
+    "memorybase": {
       "type": "sse",
       "url": "http://localhost:8000/mcp/sse",
       "headers": {
-        "X-AgentDock-Key": "your-api-key-here"
+        "X-MemoryBase-Key": "your-api-key-here"
       }
     }
   }
@@ -33,7 +33,7 @@ AgentDock exposes all project operations as MCP tools over SSE transport. Any MC
 {
   "mcp": {
     "servers": {
-      "agentdock": {
+      "memorybase": {
         "transport": "sse",
         "url": "http://localhost:8000/mcp/sse"
       }

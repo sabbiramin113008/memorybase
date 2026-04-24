@@ -1,4 +1,4 @@
-# AgentDock
+# MemoryBase
 
 **The project operating system for AI agents.**
 
@@ -7,7 +7,7 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-AgentDock gives your AI coding assistants a shared memory and task system. Agents read your project blueprint, update task statuses, record decisions, and coordinate with each other — all through a standardised MCP interface.
+MemoryBase gives your AI coding assistants a shared memory and task system. Agents read your project blueprint, update task statuses, record decisions, and coordinate with each other — all through a standardised MCP interface.
 
 ---
 
@@ -36,10 +36,10 @@ Open http://localhost:8000 — that's it.
 ## Quick Start (Docker)
 
 ```bash
-# 1. Run AgentDock
+# 1. Run MemoryBase
 docker run -p 8000:8000 \
   -v $(pwd)/data:/app/data \
-  -e AGENTDOCK_API_KEY=my-secret-key \
+  -e MEMORYBASE_API_KEY=my-secret-key \
   ghcr.io/sabbiramin113008/memorybase:latest
 
 # 2. Open in browser
@@ -55,7 +55,7 @@ That's it. SQLite data is persisted in `./data`.
 ```bash
 # Clone
 git clone https://github.com/sabbiramin113008/memorybase.git
-cd agentdoc
+cd memorybase
 
 # Start backend (creates venv, installs deps, starts with --reload)
 ./start-backend.sh
@@ -72,7 +72,7 @@ cd agentdoc
 
 ## MCP Configuration
 
-Connect any MCP-compatible AI agent to AgentDock:
+Connect any MCP-compatible AI agent to MemoryBase:
 
 ### Claude Code / Claude Desktop
 
@@ -81,7 +81,7 @@ Add to `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "agentdock": {
+    "memorybase": {
       "type": "sse",
       "url": "http://localhost:8000/mcp/sse"
     }
@@ -96,7 +96,7 @@ Add to `.cursor/mcp.json`:
 ```json
 {
   "mcpServers": {
-    "agentdock": {
+    "memorybase": {
       "url": "http://localhost:8000/mcp/sse"
     }
   }
@@ -131,7 +131,7 @@ Your agent can now call tools like `list_projects()`, `get_blueprint()`, `create
 ## Project Structure
 
 ```
-agentdoc/
+memorybase/
 ├── backend/          # FastAPI app, SQLModel models, MCP tools, routers
 ├── frontend/         # React + Vite + Tailwind frontend
 ├── docs/             # MkDocs documentation source
