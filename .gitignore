@@ -66,3 +66,4 @@ site/
 # Private planning files
 project.md
 tasks.md
+upload.sh
