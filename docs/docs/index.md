@@ -38,7 +38,7 @@ All three are accessible to any AI agent via **MCP tools**, and to humans via a 
 
 ```bash
 # Pull and run with Docker
-docker run -p 8000:8000 -e AGENTDOCK_API_KEY=my-secret ghcr.io/sabbiramin113008/agentdoc:latest
+docker run -p 8000:8000 -e AGENTDOCK_API_KEY=my-secret ghcr.io/sabbiramin113008/memorybase:latest
 ```
 
 Open [http://localhost:8000](http://localhost:8000) in your browser.

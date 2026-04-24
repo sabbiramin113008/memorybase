@@ -12,7 +12,7 @@
 
 ```bash
 # 1. Pull the image
-docker pull ghcr.io/sabbiramin113008/agentdoc:latest
+docker pull ghcr.io/sabbiramin113008/memorybase:latest
 
 # 2. Create a data directory for SQLite persistence
 mkdir -p agentdock_data
@@ -21,7 +21,7 @@ mkdir -p agentdock_data
 docker run -p 8000:8000 \
   -v $(pwd)/agentdock_data:/app/data \
   -e AGENTDOCK_API_KEY=change-me \
-  ghcr.io/sabbiramin113008/agentdoc:latest
+  ghcr.io/sabbiramin113008/memorybase:latest
 ```
 
 Open [http://localhost:8000](http://localhost:8000).
@@ -33,7 +33,7 @@ Open [http://localhost:8000](http://localhost:8000).
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/sabbiramin113008/agentdoc.git
+git clone https://github.com/sabbiramin113008/memorybase.git
 cd agentdock
 ```
 

@@ -15,7 +15,7 @@ mkdir agentdock && cd agentdock
 ```yaml
 services:
   agentdock:
-    image: ghcr.io/sabbiramin113008/agentdoc:latest
+    image: ghcr.io/sabbiramin113008/memorybase:latest
     ports:
       - "8000:8000"
     volumes:
@@ -56,7 +56,7 @@ services:
     restart: unless-stopped
 
   agentdock:
-    image: ghcr.io/sabbiramin113008/agentdoc:latest
+    image: ghcr.io/sabbiramin113008/memorybase:latest
     ports:
       - "8000:8000"
     environment:

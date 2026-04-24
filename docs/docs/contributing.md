@@ -9,7 +9,7 @@ Thank you for your interest in contributing to AgentDock!
 ### 1. Fork and clone
 
 ```bash
-git clone https://github.com/sabbiramin113008/agentdoc.git
+git clone https://github.com/sabbiramin113008/memorybase.git
 cd agentdock
 ```
 

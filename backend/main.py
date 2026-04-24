@@ -90,7 +90,7 @@ def cli():
     import uvicorn
     import argparse
 
-    parser = argparse.ArgumentParser(description="AgentDock server")
+    parser = argparse.ArgumentParser(description="MemoryBase server")
     parser.add_argument("--host", default=settings.HOST, help="Bind host (default: 0.0.0.0)")
     parser.add_argument("--port", type=int, default=settings.PORT, help="Bind port (default: 8000)")
     parser.add_argument("--reload", action="store_true", help="Enable auto-reload (dev mode)")

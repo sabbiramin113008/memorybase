@@ -2,8 +2,8 @@
 
 **The project operating system for AI agents.**
 
-[![CI](https://github.com/sabbiramin113008/agentdoc/actions/workflows/test.yml/badge.svg)](https://github.com/sabbiramin113008/agentdoc/actions/workflows/test.yml)
-[![Docs](https://github.com/sabbiramin113008/agentdoc/actions/workflows/docs.yml/badge.svg)](https://github.com/sabbiramin113008/agentdoc/actions/workflows/docs.yml)
+[![CI](https://github.com/sabbiramin113008/memorybase/actions/workflows/test.yml/badge.svg)](https://github.com/sabbiramin113008/memorybase/actions/workflows/test.yml)
+[![Docs](https://github.com/sabbiramin113008/memorybase/actions/workflows/docs.yml/badge.svg)](https://github.com/sabbiramin113008/memorybase/actions/workflows/docs.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -22,6 +22,17 @@ AgentDock gives your AI coding assistants a shared memory and task system. Agent
 
 ---
 
+## Quick Start (pip)
+
+```bash
+pip install memorybase
+memorybase --port 8000
+```
+
+Open http://localhost:8000 — that's it.
+
+---
+
 ## Quick Start (Docker)
 
 ```bash
@@ -29,7 +40,7 @@ AgentDock gives your AI coding assistants a shared memory and task system. Agent
 docker run -p 8000:8000 \
   -v $(pwd)/data:/app/data \
   -e AGENTDOCK_API_KEY=my-secret-key \
-  ghcr.io/sabbiramin113008/agentdoc:latest
+  ghcr.io/sabbiramin113008/memorybase:latest
 
 # 2. Open in browser
 open http://localhost:8000
@@ -43,8 +54,8 @@ That's it. SQLite data is persisted in `./data`.
 
 ```bash
 # Clone
-git clone https://github.com/sabbiramin113008/agentdoc.git
-cd agentdock
+git clone https://github.com/sabbiramin113008/memorybase.git
+cd agentdoc
 
 # Start backend (creates venv, installs deps, starts with --reload)
 ./start-backend.sh
@@ -120,7 +131,7 @@ Your agent can now call tools like `list_projects()`, `get_blueprint()`, `create
 ## Project Structure
 
 ```
-agentdock/
+agentdoc/
 ├── backend/          # FastAPI app, SQLModel models, MCP tools, routers
 ├── frontend/         # React + Vite + Tailwind frontend
 ├── docs/             # MkDocs documentation source
