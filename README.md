@@ -4,8 +4,10 @@
 
 [![CI](https://github.com/sabbiramin113008/memorybase/actions/workflows/test.yml/badge.svg)](https://github.com/sabbiramin113008/memorybase/actions/workflows/test.yml)
 [![Docs](https://github.com/sabbiramin113008/memorybase/actions/workflows/docs.yml/badge.svg)](https://github.com/sabbiramin113008/memorybase/actions/workflows/docs.yml)
+[![PyPI](https://img.shields.io/pypi/v/memorybase.svg)](https://pypi.org/project/memorybase/)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Docs](https://img.shields.io/badge/docs-github.io-blue)](https://sabbiramin113008.github.io/memorybase/)
 
 MemoryBase gives your AI coding assistants a shared memory and task system. Agents read your project blueprint, update task statuses, record decisions, and coordinate with each other — all through a standardised MCP interface.
 
@@ -103,7 +105,7 @@ Add to `.cursor/mcp.json`:
 }
 ```
 
-Your agent can now call tools like `list_projects()`, `get_blueprint()`, `create_task()`, `update_task_status()`, `add_vault_entry()`, and more. See [MCP Tools Reference](docs/docs/mcp-tools.md).
+Your agent can now call tools like `list_projects()`, `get_blueprint()`, `create_task()`, `update_task_status()`, `add_vault_entry()`, and more. See [MCP Tools Reference](https://sabbiramin113008.github.io/memorybase/mcp-tools/).
 
 ---
 
@@ -146,7 +148,7 @@ memorybase/
 
 ## Contributing
 
-See [CONTRIBUTING](docs/docs/contributing.md) for dev setup, project structure, and how to add new MCP tools.
+See [CONTRIBUTING](https://sabbiramin113008.github.io/memorybase/contributing/) for dev setup, project structure, and how to add new MCP tools.
 
 ---
 

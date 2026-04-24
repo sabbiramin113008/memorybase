@@ -36,12 +36,31 @@ All three are accessible to any AI agent via **MCP tools**, and to humans via a 
 
 ## Quick Start
 
-```bash
-# Pull and run with Docker
-docker run -p 8000:8000 -e MEMORYBASE_API_KEY=my-secret ghcr.io/sabbiramin113008/memorybase:latest
-```
+=== "pip (fastest)"
 
-Open [http://localhost:8000](http://localhost:8000) in your browser.
+    ```bash
+    pip install memorybase
+    memorybase --port 8000
+    ```
+
+    Open [http://localhost:8000](http://localhost:8000) — done.
+
+=== "Docker"
+
+    ```bash
+    docker run -p 8000:8000 \
+      -e MEMORYBASE_API_KEY=my-secret \
+      ghcr.io/sabbiramin113008/memorybase:latest
+    ```
+
+=== "Local dev"
+
+    ```bash
+    git clone https://github.com/sabbiramin113008/memorybase.git
+    cd memorybase
+    ./start-backend.sh   # terminal 1
+    ./start-frontend.sh  # terminal 2
+    ```
 
 For full setup instructions, see [Getting Started](getting-started.md).
 

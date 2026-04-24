@@ -8,7 +8,24 @@
 
 ---
 
-## Option A — Docker (recommended)
+## Option A — pip (simplest)
+
+```bash
+pip install memorybase
+memorybase --port 8000
+```
+
+Open [http://localhost:8000](http://localhost:8000). SQLite database is created in the current directory automatically.
+
+Set a secure API key before exposing to a network:
+
+```bash
+MEMORYBASE_API_KEY=my-secret memorybase --port 8000
+```
+
+---
+
+## Option B — Docker
 
 ```bash
 # 1. Pull the image
@@ -28,7 +45,7 @@ Open [http://localhost:8000](http://localhost:8000).
 
 ---
 
-## Option B — Local Development
+## Option C — Local Development
 
 ### 1. Clone the repo
 
