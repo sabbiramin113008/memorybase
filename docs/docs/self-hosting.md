@@ -1,0 +1,127 @@
+# Self-Hosting
+
+## Docker Compose (recommended)
+
+The easiest way to run AgentDock in production is Docker Compose.
+
+### 1. Create a directory
+
+```bash
+mkdir agentdock && cd agentdock
+```
+
+### 2. Create `docker-compose.yml`
+
+```yaml
+services:
+  agentdock:
+    image: ghcr.io/sabbiramin113008/agentdoc:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    env_file: .env
+    restart: unless-stopped
+```
+
+### 3. Create `.env`
+
+```dotenv
+AGENTDOCK_API_KEY=your-strong-secret-key
+DATABASE_URL=sqlite:////app/data/agentdock.db
+```
+
+### 4. Start
+
+```bash
+docker compose up -d
+```
+
+---
+
+## PostgreSQL Setup
+
+For production, use PostgreSQL instead of SQLite:
+
+```yaml
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: agentdock
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: agentdock
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  agentdock:
+    image: ghcr.io/sabbiramin113008/agentdoc:latest
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://agentdock:secret@db:5432/agentdock
+      AGENTDOCK_API_KEY: your-strong-secret-key
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+```
+
+---
+
+## Nginx Reverse Proxy
+
+To run AgentDock behind Nginx with HTTPS:
+
+```nginx
+server {
+    listen 80;
+    server_name agentdock.yourdomain.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name agentdock.yourdomain.com;
+
+    ssl_certificate     /etc/letsencrypt/live/agentdock.yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/agentdock.yourdomain.com/privkey.pem;
+
+    # SSE requires buffering to be off
+    proxy_buffering off;
+    proxy_cache off;
+
+    location / {
+        proxy_pass http://localhost:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Required for SSE
+        proxy_read_timeout 86400s;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+    }
+}
+```
+
+!!! warning "SSE and buffering"
+    Server-Sent Events require `proxy_buffering off`. Without this, real-time updates will not reach clients behind Nginx.
+
+---
+
+## Updating
+
+```bash
+# Pull the latest image
+docker compose pull
+
+# Restart with zero downtime
+docker compose up -d --no-deps agentdock
+```
+
+Database migrations are handled automatically on startup — no manual steps required.
